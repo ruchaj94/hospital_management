@@ -1,0 +1,33 @@
+<!-- dropdown to select the speciality and doc:  -->
+
+<div class="booking-wrapper">
+     <div class="booking-container">
+          <div>
+               <p-dropdown [options]="specialization" placeholder="Select a specialization" (onChange)="getDoctors(selectedSpec)" [(ngModel)]="selectedSpec"></p-dropdown>
+          </div> 
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="doctors" placeholder="Select a doctor" [(ngModel)]="selectedDoc"></p-dropdown>
+          </div> 
+           
+       </div>
+       
+       <div class="docdetails-container" *ngIf="selectedDoc">
+               <img src="/assets/images/1.jpg" style="text-align:center" width="70%" alt="lab1">
+               <!-- {{selectedDoc | json}} -->
+                <div style="margin-top: 20px">Full Name : {{selectedDoc.fname}} {{selectedDoc.lname}} </div> 
+                <div>Phone No : {{selectedDoc.phone}}</div> 
+                <div>Email : {{selectedDoc.email}}</div>
+                <div>Address : {{selectedDoc.address}}</div>
+                <div>Experience : {{selectedDoc.experience}} years</div>
+                <div>Available : {{selectedDoc.availability ==1 ? 'Yes' : 'No'}} 
+                <div>Rating : {{selectedDoc.rating}}</div>
+
+      </div>
+               
+
+
+
+              
+       </div>
+</div>
+
