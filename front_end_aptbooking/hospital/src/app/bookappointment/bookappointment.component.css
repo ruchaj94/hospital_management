@@ -1,0 +1,39 @@
+.booking-container, .docdetails-container, .booking-details-container{
+    width: 46%;
+    margin-left: 20px;
+    float: left;
+    display: inline-block;
+    min-height: 400px;
+    background: #017cad;
+    text-align: center;
+    padding-top: 20px;
+    /* border: 1px solid; */
+    padding: 10px;
+    box-shadow: 1px 4px 14px 5px #888888;
+}
+.docdetails-container{
+    margin-left: 22px;
+    text-align: left;
+    padding: 23px;
+   color: aliceblue
+}
+
+.booking-wrapper{
+    position: relative;
+    padding-top: 20px;
+    width: 50%;
+    height: 100%;
+    margin-top: 67px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.booking-details-container
+{
+    background-color: #017cad;
+    text-align: left;
+    margin-left: 22px;
+    padding: 23px;
+   color: aliceblue
+
+}

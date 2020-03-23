@@ -25,8 +25,7 @@ const routes: Route[] = [
   {path: 'doclogin' , component: DocLoginComponent},
   {path: 'abtus', component:AboutusComponent},
   {path: 'contactus', component:ContactUsComponent},
-  {path: 'bookanappointment', component: BookappointmentComponent}
- 
+  {path: 'bookanappointment', component: BookappointmentComponent} 
 ]
 @NgModule({
   declarations: [

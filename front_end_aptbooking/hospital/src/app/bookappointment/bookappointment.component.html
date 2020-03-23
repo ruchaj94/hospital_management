@@ -1,0 +1,86 @@
+<!-- dropdown to select the speciality and doc:  -->
+
+<div class="booking-wrapper">
+     <div class="booking-container">
+          <div style="color: aliceblue"><strong>Appointment booking form : </strong></div>
+         
+          <div class="form-group">
+               <label for="">firstname</label>
+               <input [(ngModel)]="fname" type="text" class="form-control">
+               </div>
+               
+               <div class="form-group">
+               <label for="">lastname</label>
+               <input [(ngModel)]="lname" type="text" class="form-control">    
+               </div>
+               
+               <div class="form-group">
+                   <label for="">phoneno</label>
+                   <input [(ngModel)]="phoneno" type="text" class="form-control">    
+               </div>
+
+               <div class="form-group">
+                    <label for="">email</label>
+                    <input [(ngModel)]="email" type="text" class="form-control">    
+                </div>
+          <div style="margin-top: 20px; margin-right:5px; width: 100%"><input type="date" name="date" [(ngModel)]="date" id="date"></div>
+
+          
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="specialization" placeholder="Select a specialization"
+                    (onChange)="getDoctors(selectedSpec)" [(ngModel)]="selectedSpec"></p-dropdown>
+          </div>
+
+          <!-- {{selectedSpec | json}} -->
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="doctors" placeholder="Select a doctor" [(ngModel)]="selectedDoc"></p-dropdown>
+          </div>
+
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="slots" placeholder="Select a slot" (onChange)="getTimeSlots(selectedSlot)"
+                    [(ngModel)]="selectedSlot"></p-dropdown>
+               <!-- {{selectedSlot | json}} -->
+          </div>
+
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="timeslots" placeholder="Select a time_slot" [(ngModel)]="selectedTimeSlot">
+               </p-dropdown>
+          </div>
+          <!-- {{selectedTimeSlot | json}} -->
+
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="options" placeholder="Select an option" [(ngModel)]="selectedOption"></p-dropdown>
+          </div>
+
+          <div style="margin-top: 10px">
+               <p-dropdown [options]="visitType" placeholder="Select visitType" [(ngModel)]="selectedVisitType">
+               </p-dropdown>
+          </div>
+
+          <div style="margin-top: 20px"><button type="submit" (click)=book()>Book</button></div>
+
+     </div>
+
+     <div class="docdetails-container" *ngIf="selectedDoc && !flag">
+          <div style="color: aliceblue"><strong> Doctor Details : </strong></div>
+          <img src="/assets/images/1.jpg" style="text-align:center; margin-top: 20px" width="70%" alt="lab1">
+          <!-- {{selectedDoc | json}} -->
+          <div style="margin-top: 20px">Full Name : {{selectedDoc.fname}} {{selectedDoc.lname}} </div>
+          <div>Phone No : {{selectedDoc.phone}}</div>
+          <div>Email : {{selectedDoc.email}}</div>
+          <div>Address : {{selectedDoc.address}}</div>
+          <div>Experience : {{selectedDoc.experience}} years</div>
+          <div>Available : {{selectedDoc.availability ==1 ? 'Yes' : 'No'}}
+           <div>Rating : {{selectedDoc.rating}}</div>
+     </div>
+</div>
+
+     <div class="booking-details-container" *ngIf="flag">
+          <div>Booking Details : </div>
+          <div style="margin-top: 20px">Dooctor Name : {{selectedDoc.fname}} {{selectedDoc.lname}} </div>
+          <div>shift : {{selectedSlot.name}}</div>
+          <div>Time slot : {{selectedTimeSlot.next_available_time}}</div>
+          <div>Appointment Date : {{date}}</div>
+          <div>Visit Type : {{selectedVisitType.name}}</div>
+     </div>
+</div>
